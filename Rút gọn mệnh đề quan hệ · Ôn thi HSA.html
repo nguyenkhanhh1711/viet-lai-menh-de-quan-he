@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rút gọn mệnh đề quan hệ · Ôn thi HSA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#f1e9f9;--bg2:#d6bdee;--paper:#fbf9f6;--ink:#2e1a47;--mut:#6d5a85;--acc:#a23fb8;--deep:#4b2477;--ok:#1f7a58;--okbg:#e1f3ea;--no:#b8344d;--nobg:#fbe4e9;--line:#e6dbf1;--blob:#b57be0;color-scheme:light dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#1b1026;--bg2:#2c1844;--paper:#2a1e38;--ink:#f1e8fb;--mut:#b8a6cf;--acc:#d58bec;--deep:#c9a6f0;--ok:#6fd1a6;--okbg:#17352a;--no:#ff8aa0;--nobg:#3d1b26;--line:#43305a;--blob:#6b34a3}}
+:root[data-theme="dark"]{--bg1:#1b1026;--bg2:#2c1844;--paper:#2a1e38;--ink:#f1e8fb;--mut:#b8a6cf;--acc:#d58bec;--deep:#c9a6f0;--ok:#6fd1a6;--okbg:#17352a;--no:#ff8aa0;--nobg:#3d1b26;--line:#43305a;--blob:#6b34a3}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font:400 16px/1.7 "Be Vietnam Pro",system-ui,sans-serif;background:linear-gradient(165deg,var(--bg1),var(--bg2)) fixed;min-height:100vh;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(40vmax 40vmax at 15% 20%,var(--blob),transparent 70%),radial-gradient(35vmax 35vmax at 90% 75%,var(--blob),transparent 70%);opacity:.55;filter:blur(30px);animation:drift 22s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(-3vmax,2vmax) scale(1.08)}}
+.serif{font-family:"Playfair Display",Georgia,serif}
+.card{position:relative;max-width:760px;margin:56px 16px;padding:52px 30px 34px;background:var(--paper);border-radius:4px;box-shadow:0 30px 60px -28px rgba(75,36,119,.45),0 2px 6px rgba(75,36,119,.12);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .4 0 0 0 0 .6 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+@media(min-width:808px){.card{margin-left:auto;margin-right:auto}}
+.card::before{content:"";position:absolute;top:18px;left:50%;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--bg2);box-shadow:inset 0 2px 3px rgba(0,0,0,.28)}
+h1,h2,h3{font-family:"Playfair Display",Georgia,serif;font-weight:500;line-height:1.2;margin:0 0 14px;color:var(--ink)}
+h1{font-size:clamp(34px,8vw,54px);text-align:center}
+h2{font-size:clamp(26px,5.5vw,36px)}
+h3{font-size:22px}
+em{color:var(--acc);font-style:italic;font-weight:700}
+p{margin:0 0 12px}
+.mut{color:var(--mut)}
+.center{text-align:center}
+.hero{text-align:center;padding-top:60px}
+.flower{width:170px;margin:18px auto 6px;display:block;animation:sway 6s ease-in-out infinite alternate;transform-origin:50% 100%}
+@keyframes sway{from{transform:rotate(-2.5deg)}to{transform:rotate(2.5deg)}}
+.hint{margin-top:18px;font-size:14px;color:var(--mut)}
+.tag{display:inline-block;padding:2px 12px;border-radius:99px;background:var(--line);color:var(--deep);font-size:13px;font-weight:600;margin:0 6px 8px 0}
+table{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:15px}
+td,th{padding:9px 10px;border-top:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--mut);font-weight:500;font-size:13px;border-top:0}
+td:last-child{color:var(--deep);font-weight:600}
+.wrap{overflow-x:auto}
+.note{border-left:3px solid var(--acc);padding:4px 0 4px 16px;margin:16px 0}
+.q{padding:20px 0;border-top:1px solid var(--line)}
+.q:first-of-type{border-top:0}
+.qn{font-family:"Playfair Display",serif;color:var(--acc);font-style:italic;font-weight:700;margin-right:8px}
+.sent{font-size:17px;margin-bottom:12px}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+input{flex:1 1 200px;min-width:0;font:inherit;padding:10px 14px;border-radius:10px;border:1.5px solid var(--line);background:transparent;color:var(--ink)}
+input:focus,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+button{font:inherit;cursor:pointer;color:inherit}
+.go{padding:10px 20px;border:0;border-radius:10px;background:var(--deep);color:#fff;font-weight:600;transition:transform .15s,background .2s}
+:root:not([data-theme="light"]) .go{color:#1b1026}
+.go:hover{transform:translateY(-2px)}
+.opt{display:block;width:100%;text-align:left;margin:8px 0;padding:11px 14px;border-radius:12px;border:1.5px solid var(--line);background:transparent;transition:transform .15s,border-color .2s,background .3s}
+.opt:hover:not(:disabled){border-color:var(--acc);transform:translateX(4px)}
+.opt b{color:var(--acc);font-weight:600}
+.opt .l{display:inline-block;width:24px;color:var(--mut);font-weight:600}
+.opt.ok{background:var(--okbg);border-color:var(--ok)}
+.opt.no{background:var(--nobg);border-color:var(--no);animation:shake .4s}
+.opt:disabled{cursor:default;color:inherit}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+input.ok{border-color:var(--ok);background:var(--okbg)}
+input.no{border-color:var(--no);background:var(--nobg);animation:shake .4s}
+.fb{display:none;margin-top:12px;padding:14px 16px;border-radius:12px;font-size:15px}
+.fb.show{display:block;animation:pop .45s cubic-bezier(.2,1.3,.4,1)}
+@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.97)}}
+.fb.ok{background:var(--okbg)}.fb.no{background:var(--nobg)}
+.fb strong.ok{color:var(--ok)}.fb strong.no{color:var(--no)}
+.fb .ans{font-family:"Playfair Display",serif;font-size:18px;margin:4px 0}
+.reveal{opacity:0;transform:translateY(34px) rotate(.4deg);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.pill{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:5;padding:8px 16px;border-radius:99px;background:var(--deep);color:#fff;font-size:14px;font-weight:600;box-shadow:0 8px 24px rgba(75,36,119,.35)}
+:root:not([data-theme="light"]) .pill{color:#1b1026}
+.score{font-size:64px;font-family:"Playfair Display",serif;color:var(--acc);font-style:italic;font-weight:700;line-height:1}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<section class="card hero reveal">
+  <h1>Rút gọn <em>mệnh đề</em> quan hệ</h1>
+  <svg class="flower" viewBox="0 0 200 230" aria-hidden="true">
+    <g stroke="#6a3a9c" stroke-width="3" fill="none" stroke-linecap="round"><path d="M92 120C100 160 108 190 118 225"/><path d="M148 110C140 150 132 190 118 225"/></g>
+    <path d="M96 168c-22-4-38-18-44-34 24-2 40 8 44 34z" fill="#7b4aab"/>
+    <path d="M128 176c18-14 34-18 48-14-6 18-22 26-48 14z" fill="#5a2d8a"/>
+    <path d="M22 78c-6-34 22-58 52-50 24 8 36 34 22 56-16 24-68 26-74-6z" fill="#b99ae0"/>
+    <path d="M44 40c14 6 26 22 28 42-18 0-34-4-44-14 0-12 6-22 16-28z" fill="#9a72cf"/>
+    <path d="M118 90c-10-36 8-70 34-72 28-2 44 30 32 60-12 30-58 38-66 12z" fill="#4b2477"/>
+  </svg>
+  <p class="mut">Ôn thi HSA Tiếng Anh · lý thuyết, 30 câu tự luận và 20 câu trắc nghiệm có giải thích.</p>
+  <p class="hint">Kéo xuống để bắt đầu ↓</p>
+</section>
+
+<div id="theory"></div>
+
+<section class="card reveal">
+  <h2>Phần II · <em>Viết lại</em> câu</h2>
+  <p class="mut">30 câu tự luận. Gõ phần rút gọn (ví dụ <b>standing</b>, <b>to walk</b>) hoặc cả câu hoàn chỉnh, rồi nhấn Enter.</p>
+  <div id="essay"></div>
+</section>
+
+<section class="card reveal">
+  <h2>Phần III · <em>Trắc nghiệm</em> HSA</h2>
+  <p class="mut">20 câu. Chọn câu viết lại sát nghĩa và đúng ngữ pháp nhất.</p>
+  <div id="mcq"></div>
+</section>
+
+<section class="card center reveal" id="end">
+  <h2>Kết quả của bạn</h2>
+  <div class="score" id="final">0/50</div>
+  <p class="mut" id="msg">Làm hết các câu để xem tổng kết.</p>
+  <button class="go" onclick="location.reload()">Làm lại từ đầu</button>
+</section>
+
+<div class="pill" id="pill">Đúng 0 / 0</div>
+
+<script>
+const T=[
+{t:"A. Rút gọn bằng <em>V-ing</em>",tag:"Chủ động",s:"Mệnh đề mang nghĩa chủ động (chủ thể tự thực hiện hành động).",h:"Bỏ đại từ quan hệ → bỏ to-be (nếu có) → đưa động từ chính về nguyên thể và thêm -ing.",e:[["The man who is standing there is my uncle.","The man standing there is my uncle."],["Students who arrive late will be punished.","Students arriving late will be punished."]]},
+{t:"B. Rút gọn bằng <em>V-ed / V3</em>",tag:"Bị động",s:"Mệnh đề mang nghĩa bị động (có cấu trúc to-be + V3/ed).",h:"Bỏ đại từ quan hệ → bỏ to-be → giữ nguyên động từ ở dạng V-ed / V3.",e:[["The books which were written by him are good.","The books written by him are good."],["The house that is being built belongs to Mary.","The house built belongs to Mary."]]},
+{t:"C. Rút gọn bằng <em>To-V</em>",tag:"the first · the only · mục đích",s:"Cụm danh từ đứng trước có số thứ tự (the first, the second, the last…), sự duy nhất / so sánh nhất (the only, the best, the tallest…), hoặc diễn đạt mục đích / nhiệm vụ (thường chứa must, have to, can, could).",h:"Bỏ đại từ quan hệ → chuyển động từ thành to V (chủ động) hoặc to be V3/ed (bị động).",e:[["He is the first man who walked on the moon.","He is the first man to walk on the moon."],["I have some emails that I must reply to.","I have some emails to reply to."]]},
+{t:"D. Rút gọn bằng <em>cụm danh từ</em> (đồng vị ngữ)",tag:"Có dấu phẩy",s:"Thường áp dụng cho mệnh đề quan hệ không xác định (có dấu phẩy), cấu trúc who/which + be + cụm danh từ.",h:"Lược bỏ hoàn toàn đại từ quan hệ và động từ to-be.",e:[["Hanoi, which is the capital of Vietnam, is beautiful.","Hanoi, the capital of Vietnam, is beautiful."]]}];
+const th=document.getElementById("theory");
+th.innerHTML=`<section class="card reveal"><h2>Phần I · <em>Lý thuyết</em> trọng tâm</h2>
+<h3>Mục đích và điều kiện rút gọn</h3>
+<p><b>Mục đích:</b> giúp câu văn ngắn gọn, tránh lặp từ và thể hiện sự chuyên nghiệp trong ngữ pháp học thuật.</p>
+<div class="note"><p><b>Điều kiện bắt buộc:</b> chỉ được rút gọn khi đại từ quan hệ (who, which, that) đóng vai trò làm <b>chủ ngữ</b>. Nếu đại từ làm tân ngữ (theo sau là một mệnh đề S + V khác), ta chỉ được lược bỏ đại từ, không được biến đổi động từ.</p></div></section>`+
+T.map(x=>`<section class="card reveal"><h3>${x.t}</h3><span class="tag">${x.tag}</span>
+<p><b>Dấu hiệu:</b> ${x.s}</p><p><b>Cách làm:</b> ${x.h}</p>
+<div class="wrap"><table><tr><th>Câu gốc (đầy đủ)</th><th>Câu rút gọn</th></tr>${x.e.map(r=>`<tr><td style="color:inherit;font-weight:400">${r[0]}</td><td>${r[1]}</td></tr>`).join("")}</table></div></section>`).join("")+
+`<section class="card reveal"><h2>Kiến thức <em>nâng cao</em> hay thi</h2>
+<h3>Rút gọn với Having V3/ed</h3>
+<p>Nếu hành động trong mệnh đề quan hệ xảy ra <b>trước</b> hành động ở mệnh đề chính (thường ở thì hoàn thành), dùng <b>Having + V3/ed</b> (chủ động) hoặc <b>Having been + V3/ed</b> (bị động).</p>
+<div class="note"><p>The students who had finished the test went home → <b>The students having finished the test went home.</b></p></div>
+<h3>Giới từ đứng trước đại từ quan hệ</h3>
+<p><b>Không được</b> rút gọn mệnh đề quan hệ khi có giới từ đứng ngay trước whom/which.</p>
+<div class="note"><p>The house in which we live… (không được rút gọn).</p></div></section>`;
+
+/* [câu gốc, câu rút gọn, đáp án ngắn (| = chấp nhận nhiều dạng), loại, ghi chú thêm] */
+const E=[
+["The man who is standing at the door is my uncle.","The man standing at the door is my uncle.","standing","ing"],
+["The woman who teaches us English comes from Australia.","The woman teaching us English comes from Australia.","teaching","ing"],
+["Students who arrive late will not be permitted to enter.","Students arriving late will not be permitted to enter.","arriving","ing"],
+["The train which leaves at 8 a.m. is always crowded.","The train leaving at 8 a.m. is always crowded.","leaving","ing"],
+["The dog which is barking loudly outside belongs to him.","The dog barking loudly outside belongs to him.","barking","ing"],
+["The books which were written by Nam Cao are famous.","The books written by Nam Cao are famous.","written","ed"],
+["The house which was built in 1990 is being repaired.","The house built in 1990 is being repaired.","built","ed"],
+["The ideas which are presented in this essay are good.","The ideas presented in this essay are good.","presented","ed"],
+["The bridge which was destroyed by the storm will be rebuilt.","The bridge destroyed by the storm will be rebuilt.","destroyed","ed"],
+["The song which is being broadcast on the radio is my favorite.","The song being broadcast on the radio is my favorite.","being broadcast|broadcast","ed","Bị động tiếp diễn: giữ “being broadcast” hoặc rút còn “broadcast” đều được."],
+["Neil Armstrong was the first man who walked on the moon.","Neil Armstrong was the first man to walk on the moon.","to walk","to"],
+["She is the only student who can solve this difficult math problem.","She is the only student to solve this difficult math problem.","to solve","to"],
+["Yuri Gagarin was the first human who flew into space.","Yuri Gagarin was the first human to fly into space.","to fly","to"],
+["He was the last person who left the office yesterday evening.","He was the last person to leave the office yesterday evening.","to leave","to"],
+["This is the second bridge that was built over this river.","This is the second bridge to be built over this river.","to be built","to","Có “the second” và nghĩa bị động nên dùng to be + V3."],
+["I have a lot of homework which I must finish tonight.","I have a lot of homework to finish tonight.","to finish","to","Đại từ làm tân ngữ nhưng có “must” (nhiệm vụ) nên rút bằng to-V."],
+["There is a lot of food which we need to prepare.","There is a lot of food to prepare.","to prepare","to","Có “need to” (nhiệm vụ) nên rút bằng to-V."],
+["Hanoi, which is the capital of Vietnam, is peaceful.","Hanoi, the capital of Vietnam, is peaceful.","the capital of Vietnam","np"],
+["Mr. Smith, who is a famous doctor, is visiting our school.","Mr. Smith, a famous doctor, is visiting our school.","a famous doctor","np"],
+["We visited Mount Everest, which is the highest mountain.","We visited Mount Everest, the highest mountain.","the highest mountain","np"],
+["The lady who is wearing a red dress is my aunt.","The lady wearing a red dress is my aunt.","wearing","ing"],
+["The equipment which is imported from Japan is expensive.","The equipment imported from Japan is expensive.","imported","ed"],
+["Anyone who wants to join the club must sign here.","Anyone wanting to join the club must sign here.","wanting","ing"],
+["The scientists who are researching the vaccine found a cure.","The scientists researching the vaccine found a cure.","researching","ing"],
+["The pictures which were painted by Picasso are priceless.","The pictures painted by Picasso are priceless.","painted","ed"],
+["Are there any letters that I need to post today?","Are there any letters to post today?","to post","to","Đại từ làm tân ngữ + “need to” (nhiệm vụ) nên rút bằng to-V."],
+["The rules which were established last year must be followed.","The rules established last year must be followed.","established","ed"],
+["The boy who was punished by the teacher is crying.","The boy punished by the teacher is crying.","punished","ed"],
+["The novel which was written last month became a bestseller.","The novel written last month became a bestseller.","written","ed"],
+["I read a book that was written by a famous author.","I read a book written by a famous author.","written","ed"]];
+const X={
+ing:"Nghĩa chủ động → bỏ đại từ quan hệ (và to-be nếu có), động từ thêm -ing.",
+ed:"Nghĩa bị động → bỏ đại từ quan hệ và to-be, giữ V3/ed.",
+to:"Có the first / the second / the last / the only hoặc nghĩa mục đích, nhiệm vụ → rút gọn bằng to-V.",
+np:"Mệnh đề không xác định (có dấu phẩy) dạng who/which + be + cụm danh từ → bỏ cả đại từ và to-be."};
+
+/* [mẫu câu, 4 phương án, đáp án (0-3), giải thích]. “_” là chỗ thay thế */
+const M=[
+["The envelope _ on my desk contains top-secret information.",["leaving","left","to leave","was left"],1,"Phong bì “được để lại” → bị động → V3 (left). Phương án D thừa động từ chia."],
+["The students _ for the HSA exam must study really hard.",["prepared","to prepare","are preparing","preparing"],3,"Học sinh tự chuẩn bị → chủ động → V-ing."],
+["The proposals _ at the meeting were totally rejected.",["discussing","discussed","to discuss","were discussed"],1,"Các đề xuất “được thảo luận” → bị động → V3 (discussed)."],
+["She is the youngest athlete _ a gold medal in this event.",["winning","won","to win","to be won"],2,"Có so sánh nhất “the youngest” → to-V. Athlete tự giành huy chương nên là chủ động: to win."],
+["The road _ the two cities is being expanded.",["connecting","connected","to connect","connects"],0,"Con đường nối hai thành phố → chủ động → V-ing."],
+["I have some important documents _ today.",["signing","signed","to sign","to be signing"],2,"Tân ngữ “that I need to sign” mang nghĩa nhiệm vụ → to-V."],
+["Mr. Brown, _ our new principal, will give a speech tomorrow.",["being","to be","","is"],2,"Mệnh đề không xác định who + be + cụm danh từ → bỏ who và is, còn lại cụm danh từ (đồng vị ngữ)."],
+["Passengers _ to Paris should proceed to gate 4.",["traveling","traveled","to travel","travel"],0,"Hành khách tự di chuyển → chủ động → V-ing."],
+["Marie Curie was the first woman _ a Nobel Prize.",["winning","won","to win","to be won"],2,"Có “the first” → to-V, chủ động nên là to win."],
+["The building _ near my house is a new hospital.",["constructing","constructed","being constructed","to construct"],2,"Gốc là bị động tiếp diễn “is being constructed” → being constructed."],
+["The dictionary, _ a very useful book, is on the table.",["","being","is","to be"],0,"Mệnh đề không xác định which + be + cụm danh từ → đồng vị ngữ, bỏ which và is."],
+["Anyone _ the rules will be punished.",["not followed","not following","don’t follow","to not follow"],1,"Chủ động phủ định → not + V-ing."],
+["The products _ here are of high quality.",["manufacturing","manufactured","are manufactured","to manufacture"],1,"Sản phẩm “được sản xuất” → bị động → V3."],
+["The dog _ by a car was taken to the vet.",["hitting","was hit","to be hit","hit"],3,"Con chó “bị xe tông” → bị động → V3 (hit). B còn động từ chia nên sai."],
+["The trees _ last year are growing very well.",["planting","planted","to plant","were planted"],1,"Cây “được trồng” → bị động → V3."],
+["He is the only man _ the crash.",["surviving","survived","to survive","to be survived"],2,"Có “the only” → to-V, chủ động nên là to survive."],
+["The woman _ the candidates is the HR manager.",["interviewed","interviewing","to interview","is interviewing"],1,"Người phụ nữ đang phỏng vấn → chủ động → V-ing."],
+["The letters _ yesterday haven’t arrived yet.",["sending","sent","to send","were sent"],1,"Lá thư “được gửi” → bị động → V3 (sent)."],
+["Paris, _ the capital of France, is famous for the Eiffel Tower.",["","being","is","to be"],0,"Đồng vị ngữ: bỏ which và is, giữ cụm danh từ."],
+["The problems _ the government are very complicated.",["faced","facing","to face","are facing"],1,"Vấn đề đang đặt ra cho chính phủ → chủ động → V-ing."]];
+
+let ok=0,done=0;const L=["A","B","C","D"];
+const pill=document.getElementById("pill");
+function upd(){pill.textContent=`Đúng ${ok} / ${done}`;if(done===50){document.getElementById("final").textContent=ok+"/50";document.getElementById("msg").textContent=ok>=45?"Xuất sắc, bạn nắm rất chắc phần này.":ok>=35?"Khá tốt. Xem lại những câu sai để chắc hơn.":"Đọc lại phần lý thuyết rồi thử lại nhé."}}
+let ctx;
+function snd(good){try{ctx=ctx||new(window.AudioContext||window.webkitAudioContext)();const n=ctx.currentTime;(good?[[660,0],[880,.12],[1175,.24]]:[[220,0],[165,.17]]).forEach(([f,o])=>{const os=ctx.createOscillator(),g=ctx.createGain();os.type=good?"sine":"sawtooth";os.frequency.value=f;g.gain.setValueAtTime(.0001,n+o);g.gain.exponentialRampToValueAtTime(good?.2:.12,n+o+.02);g.gain.exponentialRampToValueAtTime(.0001,n+o+.3);os.connect(g);g.connect(ctx.destination);os.start(n+o);os.stop(n+o+.32)})}catch(e){}}
+function mark(g){done++;if(g)ok++;snd(g);upd()}
+const norm=s=>s.toLowerCase().replace(/[.,!?’']/g,"").replace(/\s+/g," ").trim();
+
+document.getElementById("essay").innerHTML=E.map((e,i)=>`<div class="q" data-i="${i}"><div class="sent"><span class="qn">${i+1}.</span>${e[0]}</div>
+<div class="row"><input aria-label="Đáp án câu ${i+1}" autocomplete="off" placeholder="Phần rút gọn hoặc cả câu…"><button class="go">Kiểm tra</button></div><div class="fb"></div></div>`).join("");
+document.querySelectorAll("#essay .q").forEach(q=>{
+  const e=E[q.dataset.i],inp=q.querySelector("input"),fb=q.querySelector(".fb"),btn=q.querySelector("button");
+  const run=()=>{const v=norm(inp.value);if(!v||inp.disabled)return;
+    const good=e[2].split("|").some(k=>norm(k)===v)||v===norm(e[1]);
+    inp.disabled=btn.disabled=true;inp.classList.add(good?"ok":"no");
+    fb.className="fb show "+(good?"ok":"no");
+    fb.innerHTML=`<strong class="${good?"ok":"no"}">${good?"Chính xác!":"Chưa đúng."}</strong><div class="ans">${e[1]}</div><div>Đáp án: <b>${e[2].split("|").join(" / ")}</b></div><div class="mut">${X[e[3]]}${e[4]?" "+e[4]:""}</div>`;
+    mark(good)};
+  btn.onclick=run;inp.onkeydown=ev=>{if(ev.key==="Enter")run()};
+});
+
+document.getElementById("mcq").innerHTML=M.map((m,i)=>`<div class="q" data-i="${i}"><div class="sent"><span class="qn">${i+1}.</span>Chọn câu viết lại sát nghĩa nhất cho: <b>${m[0].replace("_","…")}</b></div>
+${m[1].map((s,j)=>`<button class="opt" data-j="${j}"><span class="l">${L[j]}.</span>${m[0].replace("_",`<b>${s}</b>`).replace(/\s+/g," ").replace(" ,",",")}</button>`).join("")}<div class="fb"></div></div>`).join("");
+document.querySelectorAll("#mcq .q").forEach(q=>{
+  const m=M[q.dataset.i],opts=[...q.querySelectorAll(".opt")],fb=q.querySelector(".fb");
+  opts.forEach(b=>b.onclick=()=>{const j=+b.dataset.j,good=j===m[2];
+    opts.forEach(o=>o.disabled=true);opts[m[2]].classList.add("ok");if(!good)b.classList.add("no");
+    fb.className="fb show "+(good?"ok":"no");
+    fb.innerHTML=`<strong class="${good?"ok":"no"}">${good?"Chính xác!":"Chưa đúng."}</strong> Đáp án đúng: <b>${L[m[2]]}</b><div class="mut">${m[3]}</div>`;
+    mark(good)});
+});
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
